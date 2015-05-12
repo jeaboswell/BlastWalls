@@ -87,15 +87,17 @@ int a1 = 0,a2 = 0,a3 = 0,a4 = 0,a5 = 0,a6 = 0;
 	{
 	    BlockEntity temp = (BlockEntity)world.getTileEntity(x, y, z);
 	    String current = null, owner = null;
+	    boolean creative = false;
 	    
 	    try {
 	    	current = player.getDisplayName();
+	    	creative = player.capabilities.isCreativeMode;
 	    	owner = temp.getOwner().getDisplayName();
 	    } catch (Exception e) {
 	    	e.printStackTrace();
 	    }
 	    
-	    if (current.equals(owner)) {
+	    if (current.equals(owner) || creative) {
 	    	return world.setBlockToAir(x, y, z);
 	    }
 	    else {
