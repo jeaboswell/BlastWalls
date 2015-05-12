@@ -1,0 +1,32 @@
+#Glass Blocks
+tile.ClearBlastGlass.name=Blast Glass (Clear)
+tile.WhiteBlastGlass.name=Blast Glass (White)
+tile.OrangeBlastGlass.name=Blast Glass (Orange)
+tile.MagentaBlastGlass.name=Blast Glass (Magenta)
+tile.LightBlueBlastGlass.name=Blast Glass (Light Blue)
+tile.YellowBlastGlass.name=Blast Glass (Yellow)
+tile.LimeBlastGlass.name=Blast Glass (Lime)
+tile.PinkBlastGlass.name=Blast Glass (Pink)
+tile.GrayBlastGlass.name=Blast Glass (Gray)
+tile.LightGrayBlastGlass.name=Blast Glass (Light Gray)
+tile.CyanBlastGlass.name=Blast Glass (Cyan)
+tile.PurpleBlastGlass.name=Blast Glass (Purple)
+tile.BlueBlastGlass.name=Blast Glass (Blue)
+tile.BrownBlastGlass.name=Blast Glass (Brown)
+tile.GreenBlastGlass.name=Blast Glass (Green)
+tile.RedBlastGlass.name=Blast Glass (Red)
+tile.BlackBlastGlass.name=Blast Glass (Black)
+#Wall Blocks
+tile.WhiteBlastBlock.name=Blast Wall (White)
+tile.GrayBlastBlock.name=Blast Wall (Gray)
+tile.LightGrayBlastBlock.name=Blast Wall (Light Gray)
+tile.BlackBlastBlock.name=Blast Wall (Black)
+#Light Blocks
+tile.BlueBlastLamp.name=Blast Lamp (Blue)
+#Creative Tab
+itemGroup.mytab=Blast Walls
+
+
+tile.EntityTest.name=Entity Test Block
+
+msg.wrongOwner.txt=That's Not Yours!

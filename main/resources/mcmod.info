@@ -1,0 +1,16 @@
+[
+{
+  "modid": "blastwalls",
+  "name": "Blast Walls",
+  "description": "This mod adds highly blast resistant blocks.",
+  "version": "1.0",
+  "mcversion": "1.7.10",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["S0N_0F_BISCUIT"],
+  "credits": "Whov, for his connected textures API.",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]
