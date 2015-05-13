@@ -44,11 +44,7 @@ public class MBlocks {
 	public static Block BlackBlastBlock;
 	// Light blocks
 	public static Block BlueBlastLamp;
-	//
-	//
-	public static Block EntityTest;
-	//
-	//
+	
 	public static void initializeBlock(){
 		ClearBlastGlass = new Clear("ClearBlastGlass", "Glass/Clear/Glass_");
 		WhiteBlastGlass = new White("WhiteBlastGlass", "Glass/White/Glass_");
@@ -74,11 +70,6 @@ public class MBlocks {
 		BlackBlastBlock = new BlackBlock("BlackBlastBlock", "Walls/BlackBlock/Block_");
 		
 		BlueBlastLamp = new BlueLamp("BlueBlastLamp", "Lights/BlueLamp/Lamp_");
-		//
-		//
-		EntityTest = new BlackEntity("EntityTest", "Walls/BlackBlock/Block_");
-		//
-		
 	}
 	
 	public static void registerBlock(){
@@ -106,9 +97,6 @@ public class MBlocks {
 		GameRegistry.registerBlock(BlackBlastBlock, "BlackBlastBlock");
 		
 		GameRegistry.registerBlock(BlueBlastLamp, "BlueBlastLamp");
-		//
-		//
-		GameRegistry.registerBlock(EntityTest, "EntityTest");
 	}
 	
 	

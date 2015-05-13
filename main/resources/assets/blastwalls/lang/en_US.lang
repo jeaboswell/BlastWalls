@@ -25,8 +25,5 @@ tile.BlackBlastBlock.name=Blast Wall (Black)
 tile.BlueBlastLamp.name=Blast Lamp (Blue)
 #Creative Tab
 itemGroup.mytab=Blast Walls
-
-
-tile.EntityTest.name=Entity Test Block
-
+#Chat Messages
 msg.wrongOwner.txt=That's Not Yours!

@@ -17,6 +17,7 @@ import net.minecraft.world.World;
 
 import com.blastwalls.lib.RefStrings;
 import com.blastwalls.main.ConnectedTextures;
+import com.blastwalls.main.MainRegistry;
 import com.blastwalls.tileentity.BlockEntity;
 
 import cpw.mods.fml.relauncher.Side;
@@ -36,13 +37,14 @@ int a1 = 0,a2 = 0,a3 = 0,a4 = 0,a5 = 0,a6 = 0;
 		super(Material.rock, path, RefStrings.MODID);
 		
 		this.setBlockName(name);
-		this.setCreativeTab(CreativeTabs.tabBlock);
+		this.setCreativeTab(MainRegistry.mytab);
 		this.setBlockTextureName(RefStrings.MODID + ":" + path + "0");
-		this.setHardness(2.0F);
+		this.setHardness(4.0F);
 		this.setResistance(6000000.0F);
 		this.setLightOpacity(255);
 		this.setLightLevel(0.0F);
 		this.setStepSound(Block.soundTypeStone);
+		this.setHarvestLevel("pickaxe", 2);
 		
 		this.Falone = 0;
         this.Fedge3 = 1;

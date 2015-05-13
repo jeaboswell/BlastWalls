@@ -3,10 +3,13 @@ package com.blastwalls.blocks.lights;
 import java.util.Random;
 
 import net.minecraft.block.Block;
+import net.minecraft.block.ITileEntityProvider;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.Minecraft;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.ChatComponentTranslation;
 import net.minecraft.util.IIcon;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.IBlockAccess;
@@ -14,11 +17,13 @@ import net.minecraft.world.World;
 
 import com.blastwalls.lib.RefStrings;
 import com.blastwalls.main.ConnectedTextures;
+import com.blastwalls.main.MainRegistry;
+import com.blastwalls.tileentity.BlockEntity;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-public class BlueLamp extends ConnectedTextures{
+public class BlueLamp extends ConnectedTextures implements ITileEntityProvider {
 	
 int a1 = 0,a2 = 0,a3 = 0,a4 = 0,a5 = 0,a6 = 0;
 	
@@ -26,11 +31,13 @@ int a1 = 0,a2 = 0,a3 = 0,a4 = 0,a5 = 0,a6 = 0;
 	
 	boolean red = false;
 	
+	private EntityPlayer owner = null;
+	
 	public BlueLamp(String name, String path) {
 		super(Material.rock, path, RefStrings.MODID);
 		
 		this.setBlockName(name);
-		this.setCreativeTab(CreativeTabs.tabBlock);
+		this.setCreativeTab(MainRegistry.mytab);
 		this.setBlockTextureName(RefStrings.MODID + ":" + path + "0");
 		this.setHardness(2.0F);
 		this.setResistance(6000000.0F);
@@ -49,7 +56,7 @@ int a1 = 0,a2 = 0,a3 = 0,a4 = 0,a5 = 0,a6 = 0;
 	
 	@SideOnly(Side.CLIENT)
 	public void onBlockAdded(World world, int i, int j, int k){
-		EntityPlayer entity = Minecraft.getMinecraft().thePlayer;
+		EntityPlayer entity = owner = Minecraft.getMinecraft().thePlayer;
 		if(entity!=null&&world!=null){
 		int le = MathHelper.floor_double((double)(entity.rotationYaw * 4.0F / 360.0F) + 0.5D) & 3;
 		world.setBlockMetadataWithNotify(i, j, k, le, 2);
@@ -93,4 +100,37 @@ int a1 = 0,a2 = 0,a3 = 0,a4 = 0,a5 = 0,a6 = 0;
 		return 1;
 	}
 
+	@Override
+	public boolean removedByPlayer(World world, EntityPlayer player, int x, int y, int z, boolean willHarvest)
+	{
+	    BlockEntity temp = (BlockEntity)world.getTileEntity(x, y, z);
+	    String current = null, owner = null;
+	    boolean creative = false;
+	    
+	    try {
+	    	current = player.getDisplayName();
+	    	creative = player.capabilities.isCreativeMode;
+	    	owner = temp.getOwner().getDisplayName();
+	    } catch (Exception e) {
+	    	e.printStackTrace();
+	    }
+	    
+	    if (current.equals(owner) || creative) {
+	    	return world.setBlockToAir(x, y, z);
+	    }
+	    else {
+	    	player.addChatMessage(new ChatComponentTranslation("msg.wrongOwner.txt"));
+	    	return false;
+	    }
+	}
+	
+	@Override
+	public TileEntity createNewTileEntity(World world, int p_149915_2_) {
+		return new BlockEntity(owner);
+	}
+	
+	@Override
+	public boolean hasTileEntity(int metadata){
+		return true;
+	}
 }
